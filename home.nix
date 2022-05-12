@@ -20,7 +20,6 @@
   programs.home-manager.enable = true;
 
   home.packages = [
-    pkgs.htop
     pkgs.mill
     pkgs.scala
   ];
@@ -53,27 +52,14 @@
     userName = "petenewman";
   };
 
-  programs.zsh = {
-    enable = true;
-    enableAutosuggestions = true;
-    # need to flip this off and delete conflicting files when updating
-    # https://github.com/NixOS/nix/issues/5445
-    enableCompletion = true;
-    initExtra = "
-export JAVA_HOME=/home/peten/.nix-profile/bin/java
-if [ -e /home/peten/.nix-profile/etc/profile.d/nix.sh ]; then . /home/peten/.nix-profile/etc/profile.d/nix.sh; fi
-";
-    oh-my-zsh = {
-      enable = true;
-      plugins = ["git" "docker" "docker-compose" "k"];
-      theme = "simple";
-      custom = "$HOME/.oh-my-zsh/custom";
-    };
-  };
-
   programs.java = {
     enable = true;
     package = pkgs.jdk11;
+  };
+
+  programs.jq = {
+    enable = true;
+    package = pkgs.jq;
   };
 
   programs.sbt = {
@@ -108,10 +94,21 @@ if [ -e /home/peten/.nix-profile/etc/profile.d/nix.sh ]; then . /home/peten/.nix
     ];
   };
 
-  # firefox
-  # htop
-  # jq
-  # less?
-  # ssh?
-  # alphabetical order?
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    # need to flip this off and delete conflicting files when updating
+    # https://github.com/NixOS/nix/issues/5445
+    enableCompletion = true;
+    initExtra = "
+export JAVA_HOME=/home/peten/.nix-profile/bin/java
+if [ -e /home/peten/.nix-profile/etc/profile.d/nix.sh ]; then . /home/peten/.nix-profile/etc/profile.d/nix.sh; fi
+";
+    oh-my-zsh = {
+      enable = true;
+      plugins = ["git" "docker" "docker-compose" "k"];
+      theme = "simple";
+      custom = "$HOME/.oh-my-zsh/custom";
+    };
+  };
 }
