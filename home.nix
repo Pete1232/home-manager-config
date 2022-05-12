@@ -33,6 +33,26 @@
     enableZshIntegration = true;
   };
 
+  programs.git = {
+    enable = true;
+    package = pkgs.git;
+    delta.enable = true;
+    extraConfig = {
+      core = {
+        autocrlf = "input";
+      };
+      init = {
+        defaultBranch = "main";
+      };
+      pull = {
+        rebase = "false";
+      };
+    };
+    ignores = [".idea/" ".bsp/" ".vscode/" ".bloop/" "metals.sbt" "*.code-workspace" ".metals" "./ammonite/" ".terraform/"];
+    userEmail = "peter.newman@disneystreaming.com";
+    userName = "petenewman";
+  };
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -87,4 +107,11 @@ if [ -e /home/peten/.nix-profile/etc/profile.d/nix.sh ]; then . /home/peten/.nix
       yzhang.markdown-all-in-one
     ];
   };
+
+  # firefox
+  # htop
+  # jq
+  # less?
+  # ssh?
+  # alphabetical order?
 }
