@@ -8,7 +8,10 @@
 
 ## Usage
 
-`home-manager switch`
+```sh
+flakeUri=<flake.nix uri>
+home-manager switch --flake "$flakeUri#peten"
+```
 
 ## Notes
 
