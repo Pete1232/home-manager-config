@@ -67,6 +67,20 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      arrterian.nix-env-selector
+      bbenoist.nix
+      davidanson.vscode-markdownlint
+      esbenp.prettier-vscode
+      github.vscode-pull-request-github
+      hashicorp.terraform
+      redhat.java
+      redhat.vscode-yaml
+      scala-lang.scala
+      scalameta.metals
+      disneystreaming.smithy
+      yzhang.markdown-all-in-one
+    ];
   };
 
   programs.zsh = {
