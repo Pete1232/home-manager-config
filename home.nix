@@ -59,16 +59,12 @@ if [ -e /home/peten/.nix-profile/etc/profile.d/nix.sh ]; then . /home/peten/.nix
   programs.sbt = {
     enable = true;
     package = pkgs.sbt;
+    # dependency tree is enabled via another mechanism now that isn't compatible
     plugins = [
-      {
-        org = "net.virtual-void";
-        artifact = "sbt-dependency-graph";
-        version = "0.10.0-RC1";
-      }
       {
         org = "com.timushev.sbt";
         artifact = "sbt-updates";
-        version = "0.5.1";
+        version = "0.6.2";
       }
     ];
   };
