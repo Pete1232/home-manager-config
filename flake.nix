@@ -13,14 +13,6 @@
     let
       system = "x86_64-linux";
       username = "peten";
-      # overlay-unstable = final: prev: {
-      #   unstable = nixpkgs-unstable.legacyPackages.${prev.system};
-      #   # use this variant if unfree packages are needed:
-      #   unstable = import nixpkgs-unstable {
-      #     inherit system;
-      #     config.allowUnfree = true;
-      #   };
-      # };
     in {
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         # Specify the path to your home configuration here

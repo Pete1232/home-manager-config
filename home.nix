@@ -1,5 +1,8 @@
 { config, pkgs, lib, nixpkgs-unstable, nurpkgs, ... }:
 
+let
+  sbtConfigPath = ".sbt/1.0";
+in
 {
   home = {
     username = "peten";
@@ -48,7 +51,7 @@
       };
     };
     ignores = [".idea/" ".bsp/" ".vscode/" ".bloop/" "metals.sbt" "*.code-workspace" ".metals" "./ammonite/" ".terraform/"];
-    userEmail = "peter.newman@disneystreaming.com";
+    userEmail = "pete1232@gmail.com";
     userName = "petenewman";
   };
 
@@ -69,7 +72,7 @@
   programs.sbt = {
     enable = true;
     package = pkgs.sbt;
-    # dependency tree is enabled via another mechanism now that isn't compatible
+    baseConfigPath = sbtConfigPath;
     plugins = [
       {
         org = "com.timushev.sbt";
@@ -78,6 +81,14 @@
       }
     ];
   };
+
+  home.file."${sbtConfigPath}/global.sbt".text = ''
+    dependencyUpdatesFilter -= moduleFilter(organization = "org.scala-lang", name = "scala-library")
+  '';
+
+  home.file."${sbtConfigPath}/plugins/built-in.sbt".text = ''
+    addDependencyTreePlugin
+  '';
 
   programs.vscode = {
     enable = true;
