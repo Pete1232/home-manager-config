@@ -17,13 +17,8 @@ home-manager switch --flake "$flakeUri#peten"
 
 ### Java and SBT
 
-- For work projects an overlay of Java 11 is needed. For perfonal projects this can be overriden with custom config.
-- The dependency tree plugin is now built into SBT, but home-manager doesn't support that.
-- `JAVA_HOME` needs to be explicitly added to the `initExtra`. Not sure why since I expected the Java program to do this.
-
-### Nix
-
-- The Nix install script needs to be an `initExtra`. Think this is because home-manager doesn't support profiles yet.
+- For projects not using Nix an overlay of Java 11 is needed to make sure everything works. For personal projects this can be overriden with custom config.
+- The dependency tree plugin is now built into SBT, but home-manager doesn't support that. So it needs to be added in another plugin file.
 
 ### ZSH
 
