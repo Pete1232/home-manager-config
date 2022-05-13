@@ -30,11 +30,6 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-      duckduckgo-privacy-essentials
-      onepassword-password-manager
-      privacy-badger
-    ];
   };
 
   programs.git = {
