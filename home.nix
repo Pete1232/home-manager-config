@@ -119,7 +119,7 @@ in
     oh-my-zsh = {
       enable = true;
       plugins = ["git" "docker" "docker-compose" "k"];
-      theme = "simple";
+      theme = "robbyrussell";
       custom = "$HOME/.oh-my-zsh/custom";
     };
   };
