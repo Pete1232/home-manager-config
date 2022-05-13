@@ -2,19 +2,34 @@
   description = "Home Manager configuration of Pete Newman";
 
   inputs = {
-    home-manager.url = "github:nix-community/home-manager";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/release-21.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nurpkgs.url = github:nix-community/NUR;
   };
 
-  outputs = { home-manager, ... }:
+  outputs = { home-manager, nixpkgs-unstable, nurpkgs, ... }:
     let
       system = "x86_64-linux";
       username = "peten";
+      # overlay-unstable = final: prev: {
+      #   unstable = nixpkgs-unstable.legacyPackages.${prev.system};
+      #   # use this variant if unfree packages are needed:
+      #   unstable = import nixpkgs-unstable {
+      #     inherit system;
+      #     config.allowUnfree = true;
+      #   };
+      # };
     in {
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         # Specify the path to your home configuration here
         configuration = import ./home.nix;
+
+        extraSpecialArgs = {
+          nixpkgs-unstable = nixpkgs-unstable;
+          nurpkgs = nurpkgs;
+        };
 
         inherit system username;
         homeDirectory = "/home/${username}";

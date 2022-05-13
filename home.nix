@@ -1,20 +1,40 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, nixpkgs-unstable, nurpkgs, ... }:
 
 {
-  home.username = "peten";
-  home.homeDirectory = "/home/peten";
+  home = {
+    username = "peten";
+    homeDirectory = "/home/peten";
+    packages = [
+      pkgs.mill
+      pkgs.scala
+    ];
+  };
 
-  home.packages = [
-    pkgs.mill
-    pkgs.scala
-  ];
-
-  nixpkgs.overlays = [ (final: prev: { jre = prev.jdk11; }) ];
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+    overlays = [
+      (final: prev: { jre = prev.jdk11; })
+      (final: prev: { unstable = nixpkgs-unstable.legacyPackages.${prev.system}; })
+      nurpkgs.overlay
+    ];
+  };
 
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox;
+    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      duckduckgo-privacy-essentials
+      onepassword-password-manager
+      privacy-badger
+    ];
   };
 
   programs.git = {
@@ -78,9 +98,10 @@
       redhat.vscode-yaml
       scala-lang.scala
       scalameta.metals
-      disneystreaming.smithy
       yzhang.markdown-all-in-one
-    ];
+    ] ++ (with pkgs.unstable.vscode-extensions; [
+      disneystreaming.smithy
+    ]);
   };
 
   programs.zsh = {
