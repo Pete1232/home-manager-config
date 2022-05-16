@@ -54,8 +54,6 @@ in
       };
     };
     ignores = [".idea/" ".bsp/" ".vscode/" ".bloop/" "metals.sbt" "*.code-workspace" ".metals" "./ammonite/" ".terraform/"];
-    userName = "petenewman";
-    userEmail = "pete1232@gmail.com";
   };
 
   programs.home-manager = {
