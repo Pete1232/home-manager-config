@@ -4,6 +4,10 @@ let
   sbtConfigPath = ".sbt/1.0";
 in
 {
+  imports = [
+    ./programs/aws
+  ];
+
   home = {
     username = "peten";
     homeDirectory = "/home/peten";
