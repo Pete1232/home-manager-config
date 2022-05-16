@@ -49,10 +49,13 @@ in
       pull = {
         rebase = "false";
       };
+      user = {
+        useConfigOnly = "true";
+      };
     };
     ignores = [".idea/" ".bsp/" ".vscode/" ".bloop/" "metals.sbt" "*.code-workspace" ".metals" "./ammonite/" ".terraform/"];
-    userEmail = "pete1232@gmail.com";
     userName = "petenewman";
+    userEmail = "pete1232@gmail.com";
   };
 
   programs.home-manager = {
