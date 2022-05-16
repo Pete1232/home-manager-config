@@ -2,6 +2,7 @@
 
 let
   sbtConfigPath = ".sbt/1.0";
+  awsp-script = import ./programs/aws/awsp.nix;
 in
 {
   imports = [
@@ -126,21 +127,19 @@ in
     enableCompletion = true;
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "docker" "docker-compose" "k"];
+      plugins = ["aws" "git" "docker" "docker-compose" "k"];
       theme = "robbyrussell";
       custom = "$HOME/.oh-my-zsh/custom";
     };
-    # initExtra = ''
-    #   source $HOME/.config/nixpkgs/scripts/awsp_functions.sh
-    #   alias awsall="_awsListProfile"
-    #   alias awsp="_awsSwitchProfile"
-    #   alias awswho="aws configure list"
-
-    #   complete -W "$(cat $HOME/.aws/credentials | grep -Eo '\[.*\]' | tr -d '[]')" _awsSwitchProfile
-    #   complete -W "$(cat $HOME/.aws/config | grep -Eo '\[.*\]' | tr -d '[]' | cut -d " " -f 2)" _awsSetProfile
-
-    #   source $HOME/.config/nixpkgs/scripts/git-clean.sh
-    #   alias git-clean="_gitClean"
-    # '';
+    shellAliases = {
+      awsall = "_awsListProfile";
+      awsp = "_awsSwitchProfile";
+      awswho = "aws configure list";
+    };
+    initExtra = ''
+      source ${awsp-script}
+      complete -W "$(cat $HOME/.aws/credentials | grep -Eo '\[.*\]' | tr -d '[]')" _awsSwitchProfile
+      complete -W "$(cat $HOME/.aws/config | grep -Eo '\[.*\]' | tr -d '[]' | cut -d " " -f 2)" _awsSetProfile
+    '';
   };
 }
