@@ -135,6 +135,7 @@ in
       awsall = "_awsListProfile";
       awsp = "_awsSwitchProfile";
       awswho = "aws configure list";
+      code = "codium";
     };
     initExtra = ''
       source ${awsp-script}
