@@ -13,6 +13,7 @@ in
     username = "peten";
     homeDirectory = "/home/peten";
     packages = [
+      pkgs.coursier
       pkgs.mill
       pkgs.scala
     ];
