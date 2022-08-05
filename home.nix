@@ -102,7 +102,7 @@ in
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
       arrterian.nix-env-selector
       bbenoist.nix

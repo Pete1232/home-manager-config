@@ -13,6 +13,12 @@ flakeUri=<flake.nix uri>
 home-manager switch --flake "$flakeUri#peten"
 ```
 
+To update
+
+```sh
+nix flake update
+```
+
 ## Notes
 
 ### Java and SBT
