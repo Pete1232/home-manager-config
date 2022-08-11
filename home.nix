@@ -112,6 +112,7 @@ in
       esbenp.prettier-vscode
       github.vscode-pull-request-github
       hashicorp.terraform
+      jnoortheen.nix-ide
       redhat.java
       redhat.vscode-yaml
       scala-lang.scala
@@ -119,7 +120,14 @@ in
       yzhang.markdown-all-in-one
     ] ++ (with pkgs.unstable.vscode-extensions; [
       disneystreaming.smithy
-    ]);
+    ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "smithy-playground";
+        publisher = "kubukoz";
+        version = "0.2.4";
+        sha256 = "7952c1711b860ed76da29a8964af91fb303ae1338b716051344e5d5012b08a3d";
+      }
+    ];
   };
 
   programs.zsh = {
