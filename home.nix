@@ -15,6 +15,7 @@ in
     packages = [
       pkgs.coursier
       pkgs.mill
+      pkgs.nixfmt
       pkgs.scala
     ];
     sessionVariables = {
@@ -109,18 +110,16 @@ in
       arrterian.nix-env-selector
       bbenoist.nix
       davidanson.vscode-markdownlint
+      disneystreaming.smithy
       esbenp.prettier-vscode
       github.vscode-pull-request-github
       hashicorp.terraform
-      jnoortheen.nix-ide
       redhat.java
       redhat.vscode-yaml
       scala-lang.scala
       scalameta.metals
       yzhang.markdown-all-in-one
-    ] ++ (with pkgs.unstable.vscode-extensions; [
-      disneystreaming.smithy
-    ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "smithy-playground";
         publisher = "kubukoz";
