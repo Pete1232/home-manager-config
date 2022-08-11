@@ -1,6 +1,1 @@
-{ pkgs, config, ... }:
-{
-  home.packages = [
-    pkgs.awscli2
-  ];
-}
+{ pkgs, config, ... }: { home.packages = [ pkgs.awscli2 ]; }
