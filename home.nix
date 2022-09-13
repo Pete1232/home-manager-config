@@ -108,13 +108,22 @@ in {
         scala-lang.scala
         scalameta.metals
         yzhang.markdown-all-in-one
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
-        name = "smithy-playground";
-        publisher = "kubukoz";
-        version = "0.2.4";
-        sha256 =
-          "7952c1711b860ed76da29a8964af91fb303ae1338b716051344e5d5012b08a3d";
-      }];
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "smithy-playground";
+          publisher = "kubukoz";
+          version = "0.2.4";
+          sha256 =
+            "7952c1711b860ed76da29a8964af91fb303ae1338b716051344e5d5012b08a3d";
+        }
+        {
+          name = "plantuml";
+          publisher = "jebbs";
+          version = "2.17.4";
+          sha256 =
+            "7e7cfab9b07bde2eeb25cbfea5a632355d6be1c45ebb214f8e03ccd073b8d2e8";
+        }
+      ];
   };
 
   programs.zsh = {
