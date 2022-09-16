@@ -19,6 +19,12 @@ To update
 nix flake update
 ```
 
+To format (don't forget to run home manager once first!)
+
+```sh
+nixfmt ./home.nix
+```
+
 ## Notes
 
 ### Java and SBT
