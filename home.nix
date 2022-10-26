@@ -33,7 +33,7 @@ in {
   };
 
   programs.firefox = {
-    enable = true;
+    enable = false;
     package = pkgs.firefox;
   };
 
@@ -92,7 +92,7 @@ in {
   '';
 
   programs.vscode = {
-    enable = true;
+    enable = false;
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions;
       [
