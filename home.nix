@@ -57,6 +57,7 @@ in {
       ".metals"
       "./ammonite/"
       ".terraform/"
+      ".direnv"
     ];
   };
 
