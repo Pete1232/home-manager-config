@@ -9,7 +9,7 @@ in {
   home = {
     username = "peten";
     homeDirectory = "/home/peten";
-    packages = [ pkgs.coursier pkgs.mill pkgs.nixfmt pkgs.scala pkgs.cachix ];
+    packages = [ pkgs.coursier pkgs.mill pkgs.nixfmt pkgs.scala pkgs.cachix pkgs.coursier ];
     sessionVariables = { JAVA_HOME = "${pkgs.jdk}"; };
   };
 
@@ -144,6 +144,7 @@ in {
       awswho = "aws configure list";
     };
     initExtra = ''
+      export PATH="$PATH:$HOME/.local/share/coursier/bin"
       source ${awsp-script}
       complete -W "$(cat $HOME/.aws/credentials | grep -Eo '\[.*\]' | tr -d '[]')" _awsSwitchProfile
       complete -W "$(cat $HOME/.aws/config | grep -Eo '\[.*\]' | tr -d '[]' | cut -d " " -f 2)" _awsSetProfile
