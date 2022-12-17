@@ -9,7 +9,14 @@ in {
   home = {
     username = "peten";
     homeDirectory = "/home/peten";
-    packages = [ pkgs.coursier pkgs.mill pkgs.nixfmt pkgs.scala pkgs.cachix pkgs.coursier ];
+    packages = [
+      pkgs.coursier
+      pkgs.mill
+      pkgs.nixfmt
+      pkgs.scala
+      pkgs.cachix
+      pkgs.coursier
+    ];
     sessionVariables = { JAVA_HOME = "${pkgs.jdk}"; };
   };
 
