@@ -16,6 +16,7 @@ in {
       pkgs.scala
       pkgs.cachix
       pkgs.coursier
+      pkgs.ammonite
     ];
     sessionVariables = { JAVA_HOME = "${pkgs.jdk}"; };
   };
