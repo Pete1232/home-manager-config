@@ -55,6 +55,7 @@ in {
       user = { useConfigOnly = "true"; };
     };
     ignores = [
+      ".ammonite"
       ".idea/"
       ".bsp/"
       ".vscode/"
