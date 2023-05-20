@@ -40,11 +40,6 @@ in {
     enableZshIntegration = true;
   };
 
-  programs.firefox = {
-    enable = false;
-    package = pkgs.firefox;
-  };
-
   programs.git = {
     enable = true;
     package = pkgs.git;
@@ -89,7 +84,7 @@ in {
     plugins = [{
       org = "com.timushev.sbt";
       artifact = "sbt-updates";
-      version = "0.6.2";
+      version = "0.6.4";
     }];
   };
 
@@ -100,41 +95,6 @@ in {
   home.file."${sbtConfigPath}/plugins/built-in.sbt".text = ''
     addDependencyTreePlugin
   '';
-
-  programs.vscode = {
-    enable = false;
-    package = pkgs.vscode;
-    extensions = with pkgs.vscode-extensions;
-      [
-        arrterian.nix-env-selector
-        bbenoist.nix
-        davidanson.vscode-markdownlint
-        disneystreaming.smithy
-        esbenp.prettier-vscode
-        github.vscode-pull-request-github
-        hashicorp.terraform
-        redhat.java
-        redhat.vscode-yaml
-        scala-lang.scala
-        scalameta.metals
-        yzhang.markdown-all-in-one
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "smithy-playground";
-          publisher = "kubukoz";
-          version = "0.2.4";
-          sha256 =
-            "7952c1711b860ed76da29a8964af91fb303ae1338b716051344e5d5012b08a3d";
-        }
-        {
-          name = "plantuml";
-          publisher = "jebbs";
-          version = "2.17.4";
-          sha256 =
-            "7e7cfab9b07bde2eeb25cbfea5a632355d6be1c45ebb214f8e03ccd073b8d2e8";
-        }
-      ];
-  };
 
   programs.zsh = {
     enable = true;
