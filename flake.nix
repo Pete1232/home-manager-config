@@ -11,8 +11,8 @@
 
   outputs = { home-manager, nixpkgs-unstable, nurpkgs, ... }:
     let
-      system = "x86_64-linux";
-      username = "peten";
+      system = "aarch64-darwin";
+      username = "peter.newman";
     in {
       homeConfigurations.${username} =
         home-manager.lib.homeManagerConfiguration {
@@ -25,7 +25,7 @@
           };
 
           inherit system username;
-          homeDirectory = "/home/${username}";
+          homeDirectory = "/Users/${username}";
           # Update the state version as needed.
           # See the changelog here:
           # https://nix-community.github.io/home-manager/release-notes.html

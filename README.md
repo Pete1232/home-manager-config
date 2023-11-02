@@ -10,7 +10,7 @@
 
 ```sh
 flakeUri=<flake.nix uri>
-home-manager switch --flake "$flakeUri#peten"
+home-manager switch --flake "$flakeUri#peter.newman"
 ```
 
 To update

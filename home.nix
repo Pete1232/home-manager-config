@@ -7,8 +7,8 @@ in {
   imports = [ ./programs/aws ];
 
   home = {
-    username = "peten";
-    homeDirectory = "/home/peten";
+    username = "peter.newman";
+    homeDirectory = "/Users/peter.newman";
     packages = [
       pkgs.coursier
       pkgs.mill
@@ -104,7 +104,7 @@ in {
     enableCompletion = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "aws" "git" "docker" "docker-compose" "k" ];
+      plugins = [ "aws" "git" "docker" "docker-compose" ];
       theme = "robbyrussell";
       custom = "$HOME/.oh-my-zsh/custom";
     };
