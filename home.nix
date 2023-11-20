@@ -112,6 +112,7 @@ in {
       awsall = "_awsListProfile";
       awsp = "_awsSwitchProfile";
       awswho = "aws configure list";
+      devxProd = "devx cloud aws-login -r \"arn:aws:iam::141988508569:role/bamazon-TeamMercuryLimitedAccess\"";
     };
     initExtra = ''
       export PATH="$PATH:$HOME/.local/share/coursier/bin"
