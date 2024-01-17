@@ -24,7 +24,7 @@
                 # Update the state version as needed.
                 # See the changelog here:
                 # https://nix-community.github.io/home-manager/release-notes.html
-                stateVersion = "22.11";
+                stateVersion = "23.11";
               };
             }
           ];
