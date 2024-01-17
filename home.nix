@@ -22,7 +22,6 @@ in {
   nixpkgs = {
     config = {
       allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "vscode" ];
-      news.display = "show";
     };
     overlays = [
       (final: prev: { jre = prev.jdk11; })
@@ -83,7 +82,7 @@ in {
   programs.sbt = {
     enable = true;
     package = pkgs.sbt;
-    baseConfigPath = sbtConfigPath;
+    baseUserConfigPath = sbtConfigPath;
     plugins = [{
       org = "com.timushev.sbt";
       artifact = "sbt-updates";
