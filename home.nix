@@ -22,6 +22,7 @@ in {
   nixpkgs = {
     config = {
       allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "vscode" ];
+      news.display = "show";
     };
     overlays = [
       (final: prev: { jre = prev.jdk11; })

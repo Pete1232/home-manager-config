@@ -1,10 +1,14 @@
 # home-manager-config
 
+Runs against home-manager version `24.05-pre``
+
 [Installation instructions](https://nixos.wiki/wiki/Home_Manager)
 
 [Find packages](https://search.nixos.org/packages)
 
 [Options](https://nix-community.github.io/home-manager/options.xhtml)
+
+[Update version](https://nix-community.github.io/home-manager/index.xhtml#sec-updating)
 
 ## Usage
 
