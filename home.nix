@@ -2,9 +2,7 @@
 
 let
   sbtConfigPath = ".sbt/1.0";
-  awsp-script = import ./programs/aws/awsp.nix;
 in {
-  imports = [ ./programs/aws ];
 
   home = {
     username = "peter.newman";
@@ -33,6 +31,10 @@ in {
       nurpkgs.overlay
     ];
   };
+
+  # programs.awscli = {
+  #   enable = true;
+  # };
 
   programs.direnv = {
     enable = true;
@@ -99,7 +101,7 @@ in {
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
-    # need to flip this off and delete conflicting files when updating
+    # may need to flip this off and delete conflicting files when updating
     # https://github.com/NixOS/nix/issues/5445
     enableCompletion = true;
     oh-my-zsh = {
@@ -109,17 +111,12 @@ in {
       custom = "$HOME/.oh-my-zsh/custom";
     };
     shellAliases = {
-      awsall = "_awsListProfile";
-      awsp = "_awsSwitchProfile";
-      awswho = "aws configure list";
+      # work aliases
       devxQA = "devx cloud aws-login -r arn:aws:iam::789659335040:role/bamazon-TeamMercury --session-duration 3600 && eval \"$(aws configure export-credentials --profile HULU_SSO --format env)\"";
       devxProd = "devx cloud aws-login -r arn:aws:iam::141988508569:role/bamazon-TeamMercuryLimitedAccess --session-duration 3600 && eval \"$(aws configure export-credentials --profile HULU_SSO --format env)\"";
     };
     initExtra = ''
       export PATH="$PATH:$HOME/.local/share/coursier/bin"
-      source ${awsp-script}
-      complete -W "$(cat $HOME/.aws/credentials | grep -Eo '\[.*\]' | tr -d '[]')" _awsSwitchProfile
-      complete -W "$(cat $HOME/.aws/config | grep -Eo '\[.*\]' | tr -d '[]' | cut -d " " -f 2)" _awsSetProfile
     '';
   };
 }
