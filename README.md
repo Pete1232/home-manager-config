@@ -1,6 +1,6 @@
 # home-manager-config
 
-Runs against home-manager version `24.05-pre``
+Runs against home-manager version `23.11``
 
 [Installation instructions](https://nixos.wiki/wiki/Home_Manager)
 
@@ -34,7 +34,6 @@ nixfmt ./home.nix
 ### Java and SBT
 
 - For projects not using Nix an overlay of Java 11 is needed to make sure everything works. For personal projects this can be overriden with custom config.
-- The dependency tree plugin is now built into SBT, but home-manager doesn't support that. So it needs to be added in another plugin file.
 
 ### ZSH
 
