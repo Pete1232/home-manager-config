@@ -4,7 +4,7 @@
 
 [Find packages](https://search.nixos.org/packages)
 
-[Options](https://nix-community.github.io/home-manager/options.html)
+[Options](https://nix-community.github.io/home-manager/options.xhtml)
 
 ## Usage
 

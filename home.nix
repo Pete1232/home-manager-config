@@ -112,7 +112,8 @@ in {
       awsall = "_awsListProfile";
       awsp = "_awsSwitchProfile";
       awswho = "aws configure list";
-      devxProd = "devx cloud aws-login -r \"arn:aws:iam::141988508569:role/bamazon-TeamMercuryLimitedAccess\"";
+      devxQA = "devx cloud aws-login -r arn:aws:iam::789659335040:role/bamazon-TeamMercury --session-duration 3600 && eval \"$(aws configure export-credentials --profile HULU_SSO --format env)\"";
+      devxProd = "devx cloud aws-login -r arn:aws:iam::141988508569:role/bamazon-TeamMercuryLimitedAccess --session-duration 3600 && eval \"$(aws configure export-credentials --profile HULU_SSO --format env)\"";
     };
     initExtra = ''
       export PATH="$PATH:$HOME/.local/share/coursier/bin"
