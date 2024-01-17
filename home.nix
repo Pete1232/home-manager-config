@@ -8,6 +8,7 @@ in {
     username = "peter.newman";
     homeDirectory = "/Users/peter.newman";
     packages = [
+      pkgs.awscli2
       pkgs.coursier
       pkgs.mill
       pkgs.nixfmt
@@ -30,10 +31,6 @@ in {
       nurpkgs.overlay
     ];
   };
-
-  # programs.awscli = {
-  #   enable = true;
-  # };
 
   programs.direnv = {
     enable = true;
