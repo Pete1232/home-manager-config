@@ -16,7 +16,6 @@ in {
       pkgs.coursier
       pkgs.ammonite
     ];
-    sessionVariables = { JAVA_HOME = "${pkgs.jdk}"; };
   };
 
   nixpkgs = {
