@@ -1,7 +1,6 @@
 { config, pkgs, lib, nixpkgs-unstable, nurpkgs, ... }:
 
-let
-  sbtConfigPath = ".sbt/1.0";
+let sbtConfigPath = ".sbt/1.0";
 in {
 
   home = {
@@ -108,8 +107,10 @@ in {
     };
     shellAliases = {
       # work aliases
-      devxQA = "devx cloud aws-login -r arn:aws:iam::789659335040:role/bamazon-TeamMercury --session-duration 3600 && eval \"$(aws configure export-credentials --profile HULU_SSO --format env)\"";
-      devxProd = "devx cloud aws-login -r arn:aws:iam::141988508569:role/bamazon-TeamMercuryLimitedAccess --session-duration 3600 && eval \"$(aws configure export-credentials --profile HULU_SSO --format env)\"";
+      devxQA = ''
+        devx cloud aws-login -r arn:aws:iam::789659335040:role/bamazon-TeamMercury --session-duration 3600 && eval "$(aws configure export-credentials --profile HULU_SSO --format env)"'';
+      devxProd = ''
+        devx cloud aws-login -r arn:aws:iam::141988508569:role/bamazon-TeamMercuryLimitedAccess --session-duration 3600 && eval "$(aws configure export-credentials --profile HULU_SSO --format env)"'';
     };
     initExtra = ''
       export PATH="$PATH:$HOME/.local/share/coursier/bin"
