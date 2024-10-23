@@ -4,12 +4,10 @@
   inputs = {
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nurpkgs.url = "github:nix-community/NUR";
   };
 
-  outputs = { home-manager, nixpkgs, nixpkgs-unstable, nurpkgs, ... }:
+  outputs = { home-manager, nixpkgs, ... }:
     let
       system = "aarch64-darwin";
       username = "peter.newman";
@@ -28,11 +26,6 @@
               };
             }
           ];
-
-          extraSpecialArgs = {
-            nixpkgs-unstable = nixpkgs-unstable;
-            nurpkgs = nurpkgs;
-          };
         };
     };
 }

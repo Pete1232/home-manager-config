@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nixpkgs-unstable, nurpkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let sbtConfigPath = ".sbt";
 in {
