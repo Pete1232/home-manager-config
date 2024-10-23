@@ -2,8 +2,8 @@
   description = "Home Manager configuration of Pete Newman";
 
   inputs = {
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nurpkgs.url = "github:nix-community/NUR";
@@ -24,7 +24,7 @@
                 # Update the state version as needed.
                 # See the changelog here:
                 # https://nix-community.github.io/home-manager/release-notes.html
-                stateVersion = "23.11";
+                stateVersion = "24.05";
               };
             }
           ];

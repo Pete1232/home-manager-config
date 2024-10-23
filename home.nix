@@ -10,7 +10,7 @@ in {
       pkgs.awscli2
       pkgs.coursier
       pkgs.mill
-      pkgs.nixfmt
+      pkgs.nixfmt-rfc-style
       pkgs.scala
       pkgs.cachix
       pkgs.coursier
@@ -88,7 +88,7 @@ in {
 
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     # may need to flip this off and delete conflicting files when updating
     # https://github.com/NixOS/nix/issues/5445
     enableCompletion = true;
