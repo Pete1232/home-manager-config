@@ -1,6 +1,6 @@
 { config, pkgs, lib, nixpkgs-unstable, nurpkgs, ... }:
 
-let sbtConfigPath = ".sbt/1.0";
+let sbtConfigPath = ".sbt";
 in {
 
   home = {
@@ -85,11 +85,11 @@ in {
     }];
   };
 
-  home.file."${sbtConfigPath}/global.sbt".text = ''
+  home.file."${sbtConfigPath}/1.0/global.sbt".text = ''
     dependencyUpdatesFilter -= moduleFilter(organization = "org.scala-lang", name = "scala-library")
   '';
 
-  home.file."${sbtConfigPath}/plugins/built-in.sbt".text = ''
+  home.file."${sbtConfigPath}/1.0/plugins/built-in.sbt".text = ''
     addDependencyTreePlugin
   '';
 
