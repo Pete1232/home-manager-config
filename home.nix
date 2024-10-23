@@ -22,13 +22,6 @@ in {
     config = {
       allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "vscode" ];
     };
-    overlays = [
-      (final: prev: { jre = prev.jdk11; })
-      (final: prev: {
-        unstable = nixpkgs-unstable.legacyPackages.${prev.system};
-      })
-      nurpkgs.overlay
-    ];
   };
 
   programs.direnv = {
