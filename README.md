@@ -26,7 +26,7 @@ nix flake update
 To format (don't forget to run home manager once first!)
 
 ```sh
-nixfmt-rfc-style ./home.nix
+nixfmt ./home.nix
 ```
 
 ## Notes

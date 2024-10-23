@@ -1,7 +1,14 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-let sbtConfigPath = ".sbt";
-in {
+let
+  sbtConfigPath = ".sbt";
+in
+{
 
   home = {
     username = "peter.newman";
@@ -35,10 +42,18 @@ in {
     package = pkgs.git;
     delta.enable = true;
     extraConfig = {
-      core = { autocrlf = "input"; };
-      init = { defaultBranch = "main"; };
-      pull = { rebase = "false"; };
-      user = { useConfigOnly = "true"; };
+      core = {
+        autocrlf = "input";
+      };
+      init = {
+        defaultBranch = "main";
+      };
+      pull = {
+        rebase = "false";
+      };
+      user = {
+        useConfigOnly = "true";
+      };
     };
     ignores = [
       ".ammonite"
@@ -55,7 +70,9 @@ in {
     ];
   };
 
-  programs.home-manager = { enable = true; };
+  programs.home-manager = {
+    enable = true;
+  };
 
   programs.java = {
     enable = true;
@@ -71,11 +88,13 @@ in {
     enable = true;
     package = pkgs.sbt;
     baseUserConfigPath = sbtConfigPath;
-    plugins = [{
-      org = "com.timushev.sbt";
-      artifact = "sbt-updates";
-      version = "0.6.4";
-    }];
+    plugins = [
+      {
+        org = "com.timushev.sbt";
+        artifact = "sbt-updates";
+        version = "0.6.4";
+      }
+    ];
   };
 
   home.file."${sbtConfigPath}/1.0/global.sbt".text = ''
@@ -94,16 +113,19 @@ in {
     enableCompletion = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "aws" "git" "docker" "docker-compose" ];
+      plugins = [
+        "aws"
+        "git"
+        "docker"
+        "docker-compose"
+      ];
       theme = "robbyrussell";
       custom = "$HOME/.oh-my-zsh/custom";
     };
     shellAliases = {
       # work aliases
-      devxQA = ''
-        devx cloud aws-login -r arn:aws:iam::789659335040:role/bamazon-TeamMercury --session-duration 3600 && eval "$(aws configure export-credentials --profile HULU_SSO --format env)"'';
-      devxProd = ''
-        devx cloud aws-login -r arn:aws:iam::141988508569:role/bamazon-TeamMercuryLimitedAccess --session-duration 3600 && eval "$(aws configure export-credentials --profile HULU_SSO --format env)"'';
+      devxQA = ''devx cloud aws-login -r arn:aws:iam::789659335040:role/bamazon-TeamMercury --session-duration 3600 && eval "$(aws configure export-credentials --profile HULU_SSO --format env)"'';
+      devxProd = ''devx cloud aws-login -r arn:aws:iam::141988508569:role/bamazon-TeamMercuryLimitedAccess --session-duration 3600 && eval "$(aws configure export-credentials --profile HULU_SSO --format env)"'';
     };
     initExtra = ''
       export PATH="$PATH:$HOME/.local/share/coursier/bin"
