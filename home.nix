@@ -18,17 +18,11 @@ in
       pkgs.coursier
       pkgs.mill
       pkgs.nixfmt-rfc-style
-      pkgs.scala
+      pkgs.scala_3
       pkgs.cachix
       pkgs.coursier
       pkgs.ammonite
     ];
-  };
-
-  nixpkgs = {
-    config = {
-      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "vscode" ];
-    };
   };
 
   programs.direnv = {
