@@ -25,6 +25,12 @@ in
     ];
   };
 
+  nixpkgs = {
+    overlays = [
+      (final: prev: { jre = prev.jdk11; })
+    ];
+  };
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
